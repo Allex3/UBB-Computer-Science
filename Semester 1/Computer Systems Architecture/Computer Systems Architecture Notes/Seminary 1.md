@@ -25,7 +25,7 @@
 	- `MOV BL, byte[a]` or `MOV BL, [a]` words, since it takes only 1 byte from there anyway
 
 ## Accessing memory 
-```asm
+```nasm
 mov destination, source
 mov al, byte[b] -> moves in al a byte from the address b, that is the variable b if b is one byte
 mov al, byte[a] (1 byte of variable a (1 byte from the address a))

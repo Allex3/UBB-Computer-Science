@@ -1,4 +1,14 @@
-import itertools
+"""
+    Input files:
+    input1.txt : has 3, the example in the document too, to showcase it works
+    input2.txt : has 6, a bigger example this time
+    input3.txt : has 8, the maximum value for which to show the partitions
+    input4.txt : has 30, a pretty big result
+    input5.txt : has 100, to test a very large bell number
+    You select what input file (1 to 5) to get the input from when you run the program
+    And the results are in their respective output files (output follow by the same number as the input file, .txt)
+"""
+
 def getNumberOfPartitions(n: int) -> int:
     """
     Function to get the number of partitions of a set A
@@ -66,6 +76,123 @@ def getNumberOfPartitions(n: int) -> int:
 
     return Bn
 
+def getPartToRelStr(partition: list, eqRelGraph: list) -> str:
+    outputStr = "{"
+    for subset in partition:
+        outputStr += "{"
+
+        for elem in subset:
+            outputStr += str(elem) + ", "
+        # after it finished, the last elemennt will still have a ", " after it
+        outputStr = outputStr[:-2]
+        outputStr += "}, "
+
+    #after it finished, the last subset will still have a ", " after it
+    #so delete the last two characters from it, by getting only the characters before the last two like this
+    outputStr = outputStr[:-2]
+    if (len(partition) == 1): #it has only one subset, with all elements in it of course
+        #so we just output } ⇝ AxA
+        outputStr += "} ⇝ A × A\n"
+        return outputStr
+
+
+    outputStr += "} ⇝ ∆A" #finished a partition, write the prerequsiites for the graph, any eq. rel. graph contains the delta, atleast
+    if eqRelGraph: #if the graph is not empty, append it
+        outputStr += " ∪ {"
+        for pair in eqRelGraph:
+            outputStr += str(pair) + ", "
+
+        # same situation here, delete the last colon with space before adding a "}\n" to end the row
+        outputStr = outputStr[:-2]
+        outputStr += "}\n"
+
+    return outputStr
+
+
+
+def writePartToRel(partition, eqRelGraph, fileNumber):
+    outputFile = open(f"outputs/output{fileNumber}.txt", "a", encoding = "utf-8")
+    #in append mode not to delete part
+
+    #get the string to output first
+    outputStr = getPartToRelStr(partition, eqRelGraph)
+
+    outputFile.write(outputStr)
+
+    outputFile.close()
+
+def buildEquivalentRelation(partition: list) -> list:
+    """
+    Build an equivalent relation from a partition of a set
+    """
+
+    #an equivalent relation respects transitivity, reflexivity and symmetry
+    #so we relate in the graph of the equivalent relation, every element with every other element:
+    # So delta U {(1, 2), (2, 3), (1, 3), (3, 1), (2, 1), (3, 2)}
+    # here reflexivity is respected, transitivity too, and simmetry too
+    # (a, a) exists, (a, b) and (b, a) exists, and transitivity holds true for all elements
+    #here the partition of the set contained the set itself
+    #the delta is present already since it does not matter in which subset of the partition
+    #   is a, it will ALWAYS, even if only by itself, (a, a) be present in the graph
+    # so what we should do is relate any element orderly to any other element
+    # in the subset we are in of the current partition, and add that to the graph we return
+
+    eqRelGraph = []
+    for subset in partition:
+        for elem1 in subset:
+            for elem2 in subset:
+                if elem1!=elem2: #already in delta_A
+                    eqRelGraph.append((elem1, elem2))
+
+    return eqRelGraph
+
+
+def computePartitions(A: list, partition: list, index: int, fileNumber: int):
+    """
+        Return all the partitions of the set {1, 2, ..., n}
+    """
+    """
+        To generate all possible partitions of a given set, for each element in the set we will either add
+        it to existing subsets or create a singleton subset and we will repeat this process for all
+        elements in the sets until we have considered all the elements and will print each partition.
+        
+        I will add each set element in the main set A to either a current subset from the partition
+        and I will do that iterating through the set partition, which contains subsets
+        and add the current element at A[index], to the current subset we are at, then 
+        run the function recursively, going to the next element
+        
+        outside the for that runs through all the current subsets of the partition 
+        make the current element begin a NEW subset with itself
+    """
+    #everything is a list for the sake of easier implementation
+    if (len(A)==index): #finished a partition, add it to the partitions list
+        #work out the equivalence relation for the current partition and print it
+        eqRelGraph = buildEquivalentRelation(partition)
+        writePartToRel(partition, eqRelGraph, fileNumber) #write to the output file
+        # writePartToEqRel(partition, equivalentRelation)
+        return
+
+    #for each subset in the partition, add the current element to it and callback
+    for i in range(len(partition)): #run through the sets of the current partition
+        partition[i].append(A[index])
+        computePartitions(A, partition, index+1, fileNumber)
+        partition[i].pop()
+
+    # add the current element as a subset and callback
+    partition.append([A[index]])
+    computePartitions(A, partition, index+1, fileNumber)
+    partition.pop()
+
+
+
+def getDelta(n):
+    delta = set()
+    for i in range(1, n + 1):
+        delta.add((i, i))
+    return sorted(delta)  # sort it so that is shows the elems from (1, 1) to (n, n)
+
+
+
 #user interaction
 
 def output():
@@ -74,23 +201,52 @@ def output():
     """
     fileNumber = getUserInput() #the number of the input and its respective ouput
     inputFile = open(f"inputs/input{fileNumber}.txt", "r") #read from the file that contains the fileNumber'th input
-    outputFile = open(f"outputs/output{fileNumber}.txt", "a") #append to the file that contains the output
+    outputFile = open(f"outputs/output{fileNumber}.txt", "w") #write to the file that contains the output
+    #"w" and not "a", since "w" deletes the content that was in the file
     n = int(inputFile.read())  # read the file input (cardinality of set A)
-
+    inputFile.close()
     # 1. the number of partitions on a set A = {a1, a2, ..., an}
     #get the number of partitions on a set from the
 
     #For the sake of simplicy of not being able to write a_1, I will
     # use A={1, 2, ..., n}
-    # and for the graph delta_A i will use ∆ = {(1, 1), (2, 2), ..., (n, n)}
+    # and for the graph delta_A, I will use ∆ = {(1, 1), (2, 2), ..., (n, n)}
 
-    outputFile.write(str(getNumberOfPartitions(n))) #where n = cardinality of set A, so
+    A = set() #define a set with elements {1, 2, ..., n}
+    for i in range(1, n+1):
+        A.add(i)
+    outputFile.write(f"1. The number of partitions on a set A = {A} is {str(getNumberOfPartitions(n))}\n") #where n = cardinality of set A, so
     #in our case, the set A={1, 2, ..., n}
 
 
     '''
     2. the partitions on a set A = {a1, . . . , an} and their corresponding equivalence relations (for n ≤ 8)
+    So for n<=8, we run 1., and then we run 2., otherwise, stop the program here.
     '''
+
+    if (n>8):
+        outputFile.close()
+        return
+    """ ⇝
+        We define ∆ = delta_A, but i can't write it in python, so 
+        ∆ = {(1, 1), (2, 2), ..., (n, n)}, again, using k instead of a_k element to showcase it
+    """
+    delta = getDelta(n) #delta_A set
+    partitions = [] #partitions will contain all the partitions of the set
+
+    outputFile.close() #close it and open it in append mode
+    outputFile = open(f"outputs/output{fileNumber}.txt", "a", encoding="utf-8")
+    #before computing the permtutations, write the prerequisites
+    #encoding to use delta char
+    outputFile.write(f"2. using the notation ∆A = {delta}, the partitions on a set A = {A} and their corresponding equivalence relations are:\n")
+    outputFile.close()
+
+    computePartitions(list(A), [], 0, fileNumber) #compute all the partitions of the set {1, 2, ..., n}
+    #and in the same function compute the equivalent relation for it, and write it to file
+    #i do that because I don't want to return all the partitions here, too much space needed
+    #that's why i give it the fileNumber
+
+    outputFile.close()
 
 def getUserInput():
     try:

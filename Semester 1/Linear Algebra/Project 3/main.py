@@ -144,6 +144,7 @@ def compute_number_of_bases(n: int) -> int:
 def read_file(i):
     input_file = open(f"input{i}.txt", "r")
     n = int(input_file.read())
+    input_file.close()
     return n
 
 def output_basis(basis: list[int], fileNumber: int) -> None:
@@ -172,12 +173,12 @@ def output_number_of_bases(fileNumber, n, number_of_bases):
     output_file.close()
 
 def solve():
-    for i in range(1, 6, 1):
+    for i in range(1, 6): #go through all the input files (1-5) and output them
         n = read_file(i)
         number_of_bases = compute_number_of_bases(n)
         output_number_of_bases(i, n, number_of_bases)
         if n>4: #if n is higher than 4 DO NOT output the vectors of each such bases
-            return
+            continue
         #otherwise, compute them
         compute_bases(n, i)
 

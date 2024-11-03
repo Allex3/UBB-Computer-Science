@@ -8,9 +8,9 @@
 	- Because there can be differences, there were situations in which the sizes were identical
 - The Windows API defines a WORD as being 16 bits, regardless of the processor, even if the processor "word size" is 32 or 64 bits
 
-### [EFLAGS Register](EFLAGS Register)
+### [EFLAGS Register](EFLAGS)
 
-[EFLAGS:LPO]**LPO - Last Performed Operation, this is what sets a flag**
+[EFLAGS:LPO]**LPO - Last Performed Operation, this is what sets a flag usually**, but not always
 - Working with carry flags isn't recommended
 
  Zero is considered **positive** in two's complement

@@ -1,3 +1,4 @@
+[[Lab 3 - Flags and signed instructions|Related to lab 3 instructions]]
 ##### Despite the fact there are 32 bits, only 9 flags (bits) of it are used
 -  flag - indicator on 1 bit
 
@@ -95,7 +96,8 @@ Here, the result is CORRECT in unsigned representation, so **OF = 0**, but **CF 
 >		a. **unsigned** -> CF depends, OF  = 0, unsigned
 >		b. **signed** -> OF = 1
 
->[!WARNING] CF AFFECTS ONLY AN UNSIGNED OPERATION, WHILE OF ONLY A SIGNED OPERATION
+>[!WARNING] CF AFFECTS ONLY AN UNSIGNED OPERATION, WHILE OF ONLY A SIGNED OPERATION, but they can both be set at the same time, you choose what to use
+
 
 # Instructions to modify the flags
 
@@ -108,8 +110,6 @@ CF -> CLC - CF = 0
 	  STC - CF = 1
 	  CMC - CF = !CF
 ```
-
-
 
 
 >[!QUESTION] aa

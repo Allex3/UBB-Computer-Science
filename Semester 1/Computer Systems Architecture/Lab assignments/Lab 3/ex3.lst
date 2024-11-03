@@ -1,0 +1,57 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 01                          a db 0x1
+    14 00000001 0001                        b dw 0x100
+    15 00000003 00000100                    c dd 0x10000
+    16 00000007 0000000001000000            d dq 0x100000000
+    17 0000000F <res 00000008>              r resq 1
+    18                                  
+    19                                  ; a-d+b+b+c signed
+    20                                  segment code use32 class=code
+    21                                      start:
+    22                                          ; make a a signed qword
+    23 00000000 A0[00000000]                    mov al, [a]
+    24 00000005 6698                            cbw ;signed conversion from AL to AX (byte to word)
+    25 00000007 98                              cwde ;signed conversion from AX to EAX (word to dword)
+    26 00000008 99                              cdq ; signed conversion from EAX to EDX:EAX (dword EAX to qword EDX:EAX)
+    27                                          ; put 1 in EDX when negative, or 0 when positive, in signed interpretation
+    28                                          ; now EDX:EAX = a, subtract d
+    29 00000009 2B05[07000000]                  sub EAX, dword[d] ;lower 4 bytes of d
+    30 0000000F 1B15[0B000000]                  sbb EDX, dword[d+4] ;highest 4 bytes of d
+    31                                          ;now EDX:EAX = a-d, put it in ECX:EBX to use EAX for conversion
+    32 00000015 89C3                            mov EBX, EAX ; EDX:EAX = ECX:EBX = a-d
+    33 00000017 89D1                            mov ECX, EDX ;
+    34                                          
+    35                                          ; b is a word, make it a dword twice, put it once in EAX to make it a dword, then add EAX to EAX to do b+b
+    36                                          ; to have b+b in a dword, then add c to it, to have b+b+c in EAX, then make ECX 0 to have it in ECX:EAX
+    37 00000019 66A1[01000000]                  mov AX, [b]
+    38 0000001F 98                              cwde ; AX->EAX signed conversion
+    39 00000020 01C0                            add EAX, EAX ; EAX = b+b
+    40 00000022 0305[03000000]                  add EAX, dword[c] ; EAX = b+b+c (c is already a dword)
+    41                                          
+    42                                          ;now add EAX to ECX:EBX, by adding EAX to EBX, but then it might be a carry in the middle
+    43                                          ; so add with a carry to ECX a 0
+    44 00000028 01C3                            add EBX, EAX
+    45 0000002A 83D100                          adc ECX, 0
+    46                                          
+    47 0000002D 891D[0F000000]                  mov [r], EBX ; lower 4 bytes
+    48 00000033 890D[13000000]                  mov [r+4], ECX ; higher 4 bytes
+    49                                          
+    50                                          
+    51                                          
+    52                                          
+    53                                          
+    54                                      
+    55                                          ; exit(0)
+    56 00000039 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    57 0000003B FF15[00000000]                  call    [exit]       ; call exit to terminate the program

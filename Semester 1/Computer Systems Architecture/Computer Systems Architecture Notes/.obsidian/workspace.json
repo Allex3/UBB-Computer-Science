@@ -8,63 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3f3cf613ccf1b4a6",
+            "id": "2a759a75bbcc5d2f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ALU.md",
+                "file": "Memory Segments (and addresses).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ALU"
-            }
-          },
-          {
-            "id": "45ffbff5bb2ae908",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ALU.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ALU"
-            }
-          },
-          {
-            "id": "5c9f6faaf3ed331b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "EFLAGS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "EFLAGS"
-            }
-          },
-          {
-            "id": "ede4944d496192ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "EFLAGS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "EFLAGS"
+              "title": "Memory Segments (and addresses)"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -136,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "EFLAGS.md",
+                "file": "Exam Questions/Two's complement questions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for EFLAGS"
+              "title": "Backlinks for Two's complement questions"
             }
           },
           {
@@ -155,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "EFLAGS.md",
+                "file": "Exam Questions/Two's complement questions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from EFLAGS"
+              "title": "Outgoing links from Two's complement questions"
             }
           },
           {
@@ -182,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "EFLAGS.md"
+                "file": "Exam Questions/Two's complement questions.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of EFLAGS"
+              "title": "Outline of Two's complement questions"
             }
           }
         ]
@@ -206,20 +163,41 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ede4944d496192ec",
+  "active": "2a759a75bbcc5d2f",
   "lastOpenFiles": [
+    "Lectures/Lecture 5 - Segments, Buses.md",
+    "Memory Segments (and addresses).md",
+    "BIU (Bus Interface Unit) Registers.md",
     "ALU.md",
-    "Lectures/Lecture 3.md",
     "EFLAGS.md",
+    "Images/x86.png",
+    "Exam Questions/Two's complement questions.md",
+    "Exam Questions/Stack related.md",
+    "Lectures/Lecture 4 - Two's complement.md",
+    "Pasted image 20241029011727.png",
+    "Pasted image 20241029011724.png",
+    "Seminaries/Seminary 2 - Signed, unsigned, conversions, stack.md",
+    "Labs/Lab 3 - Flags and signed instructions.md",
+    "Seminaries/Seminary 1 - Data and memory.md",
+    "Images/Stack.md",
+    "Lectures/Lecture 3 - EFLAGS (& ALU).md",
+    "2's Complement.md",
+    "Exam Questions",
+    "Exam.md",
+    "[[Exam.md",
+    "Exam questions 1.md",
     "Excalidraw/Drawing 2024-10-17 18.43.20.excalidraw.md",
+    "Excalidraw/Drawing 2024-10-21 17.04.18.excalidraw.md",
+    "Images/TwosComplement.png",
+    "Images",
+    "Pasted image 20241029005944.png",
+    "Pasted image 20241029005946.png",
+    "Seminaries",
+    "Labs",
     "Excalidraw",
-    "Seminary 1.md",
-    "Exam questions.md",
     "Untitled 1.md",
     "Lectures/dsdfas.md",
-    "Lectures/Untitled.md",
     "CSA.md",
-    "Lectures",
-    "Untitled.md"
+    "Lectures"
   ]
 }

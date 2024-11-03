@@ -1,0 +1,38 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 02                          a db 2
+    14 00000001 10                          d db 16
+    15 00000002 5902                        e dw 601
+    16 00000004 <res 00000004>              res resw 2
+    17                                      
+    18                                  ; (2*d+e)/a = 633/2 = 316, r=1 in our example, a word
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 B002                            mov AL, 2
+    22 00000002 F625[01000000]                  mul byte[d] ; AX = 2*d
+    23 00000008 660305[02000000]                add AX, word[e] ; AX = 2*d+e, a word
+    24                                          
+    25                                          ;since dividing 2*d+e by a, a being a byte, the result could be too big to fit into  a byte
+    26                                          ; becuase e is a word, as shown in my example, so we will load a into a 16bit reg, BX
+    27 0000000F 8A1D[00000000]                  mov BL, byte[a] 
+    28 00000015 B700                            mov BH, 0 ;do it like this, otherwise if mov bx, [a] it will take a and d
+    29                                          ; put 0 in DX, so DX:AX has 2*d+e, AX already has that
+    30 00000017 66BA0000                        mov DX, 0
+    31 0000001B 66F7F3                          div BX ; AX = DX:AX/BX = (2*d+e)/a, DX=remainder, and since BX is a word, the remainder can also be a word, not in our case though
+    32                                          
+    33 0000001E 66A3[04000000]                  mov [res], AX ;first word at res in memory, reserved two words
+    34 00000024 668915[06000000]                mov [res+2], DX ;second word
+    35                                      
+    36                                          ; exit(0)
+    37 0000002B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    38 0000002D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

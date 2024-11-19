@@ -1,0 +1,38 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 010204060A1419              S db 1, 2, 4, 6, 10, 20, 25 ;string of bytes S
+    14                                      l equ $-S ; length of S
+    15 00000007 00<rept>                    D times (l-1) db 0 ; initialize l bytes that are 0, that is the string D
+    16                                  
+    17                                  ; 9. A byte string S of length l is given. Obtain the string D of length l-1 so that the elements of D represent the difference between every two consecutive elements of S.
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 B906000000                      mov ecx, l-1 ; put the length of the string-1 in ecx to loop through  - the last element
+    21                                          ; because we need S[i+1]-S[i], so stop at second to last element
+    22 00000005 BE00000000                      mov esi, 0 ; index to increment to loop through S and D at the same time
+    23 0000000A E315                            jecxz endOfProgram ; if ecx is 0, don't start looping, go to the endOfProgram
+    24                                          ; so situations like 0-1 = FFFFFFFF is avoided to run 2^32-1 times
+    25                                          differenceLoop:
+    26                                              ; do the differences as such : S[i+1]-S[i] and put it in D[i]
+    27                                              ;run the loop until the second to last element of S, so l-1 in ecx
+    28 0000000C 8A86[01000000]                      mov al, [S+esi+1] ; al = S[i+1]
+    29 00000012 2A86[00000000]                      sub al, [S+esi] ; AL = S[i+1] - S[i]
+    30 00000018 8886[07000000]                      mov byte[D+esi], al ; D[i] = S[i+1]-S[i]
+    31 0000001E 46                                  inc esi ;i++
+    32 0000001F E2EB                            loop differenceLoop
+    33                                            
+    34                                          endOfProgram: ; end of program
+    35                                      
+    36                                          ; exit(0)
+    37 00000021 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    38 00000023 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

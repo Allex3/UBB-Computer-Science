@@ -1,0 +1,63 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 785634124D3C2C1A76-          s DD 12345678h, 1A2C3C4Dh, 98FCDD76h, 12783A2Bh
+    13 00000009 DDFC982B3A7812     
+    14                                       len_s equ ($-s)/4
+    15 00000010 <res 00000004>               d resd 1 ; at the end it should be FF3A3C56h
+    16                                  
+    17                                  ;9. A list of doublewords is given. Starting from the low part of the doubleword, obtain the doubleword made of the high even bytes of the low words of each doubleword from the given list. If there are not enough by
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 B904000000                      mov ECX, len_s ; length of the source string in ECX for the loop
+    21 00000005 BE[00000000]                    mov ESI, s ; offset of the source string in ESI  
+    22 0000000A BF[10000000]                    mov EDI, d ; offset of the destination "string" in EDI, a doubleword
+    23                                          ; but fill d one byte at a time, so it's actually a string of 4 words
+    24 0000000F FC                              CLD ;ascending order
+    25                                          evenBytes:
+    26                                              ; for each dword from s, obtain the higher byte of the lower word
+    27 00000010 AD                                  LODSD ; load DS:ESI in EAX (the current dword we check from s), and ESI=ESI+4 (go to the next dword)
+    28 00000011 66C1E808                            SHR AX, 8 ; AX has the lower word of s[esi], get the higher byte of this word
+    29                                              ;by shifting 8 bits to the right, so AL now is the higher part of EAX
+    30                                              ; (or MOV AL, AH)
+    31 00000015 A801                                test AL, 1 ;will set ZF=1 if number is even, or ZF=0 if number is odd
+    32                                              ;basically if it is 1, ZF=0, if 0 ZF=1
+    33 00000017 7501                                JNE notAdded
+    34                                              ;if added, execute here
+    35 00000019 AA                                  STOSB ; store the byte AL into EDI, then EDI+=1, sucessfully putting it into d
+    36                                              ; from lower to higher bytes, because of little-endian
+    37                                              
+    38                                              
+    39                                              notAdded: ; jump here without adding to d, because the byte isn't even
+    40                                              
+    41 0000001A E2F4                            loop evenBytes
+    42                                          
+    43                                          ;if at the end of the loop, d is not filled, fill the rest with FF
+    44                                          ; if d is filled (i.e d, d+1, d+2, d+3), then EDI-d will be 4 (because of incrementing after adding at d+3 the byte, now EDI=d+4, go to the end
+    45 0000001C 89F8                            mov eax, EDI
+    46 0000001E 2D[10000000]                    sub eax, d ; eax = EDI-d, compare it with 4
+    47 00000023 83F804                          cmp eax, 4 ; if zero, then jump to end, otherwise loop through the remaining value
+    48                                          ; that is 4-(EDI-d) remaining bytes at location d to be filled with FF
+    49 00000026 740C                            JE endOfProgram
+    50                                          ; not zero, remain here
+    51 00000028 B904000000                      mov ECX, 4
+    52 0000002D 29C1                            sub ECX, EAX ; ECX = 4 - (EDI-d)
+    53                                          addRemaining:
+    54 0000002F B0FF                                mov AL, 0xFF
+    55 00000031 AA                                  STOSB ; store AL in EDI, EDI+=1, thus filling the remaining high bytes of d with FF
+    56 00000032 E2FB                            loop addRemaining
+    57                                          
+    58                                          endOfProgram:
+    59                                      
+    60                                          ; exit(0)
+    61 00000034 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    62 00000036 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

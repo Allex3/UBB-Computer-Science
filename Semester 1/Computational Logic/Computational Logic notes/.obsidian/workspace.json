@@ -1,0 +1,169 @@
+{
+  "main": {
+    "id": "bee48b837390afd5",
+    "type": "split",
+    "children": [
+      {
+        "id": "e4b215aba12075db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "154228512deae13e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Semantic tableaux method - a refutation proof method.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Semantic tableaux method - a refutation proof method"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bc0bd02e8401f0cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f9cb71829c30a23",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f45977e057081e4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f3074bbba4bf6453",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "725d8a49c8f66265",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4909b61eab5b3694",
+    "type": "split",
+    "children": [
+      {
+        "id": "411f8545d38da809",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "369809d3b07c3fe7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Semantic tableaux method - a refutation proof method.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Semantic tableaux method - a refutation proof method"
+            }
+          },
+          {
+            "id": "58ec31138cbf5bb3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Semantic tableaux method - a refutation proof method.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Semantic tableaux method - a refutation proof method"
+            }
+          },
+          {
+            "id": "41eb84d81ed9afff",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b66dca6c344e88bc",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Semantic tableaux method - a refutation proof method.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Semantic tableaux method - a refutation proof method"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "154228512deae13e",
+  "lastOpenFiles": [
+    "Semantic tableaux method - a refutation proof method.md"
+  ]
+}

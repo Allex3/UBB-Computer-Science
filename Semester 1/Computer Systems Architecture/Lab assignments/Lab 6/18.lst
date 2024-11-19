@@ -1,0 +1,97 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 7856AB12CDAB561244-        sir DD 12AB5678h, 1256ABCDh, 12344344h 
+    13 00000009 433412             
+    14                                     s_len equ ($-sir)/4
+    15 0000000C 00000000<rept>             d times s_len dd 0
+    16                                  
+    17                                  ; 18. A string of doublewords is given. Order in increasing order the string of the high words (most significant) from these doublewords. The low words (least significant) remain unchanged.
+    18                                  ; what I will do is only sort the high words, put them in d
+    19                                  ; but sorting the higher words is actually sorting the whole numbers, because then the lower word doesn't matter
+    20                                  ; then, go in normal order through sir, and put them at the lower words in d
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 BE[00000000]                    mov esi, sir
+    24 00000005 BF[0C000000]                    mov edi, d
+    25 0000000A B903000000                      mov ecx, s_len
+    26 0000000F FC                              CLD ; go through sir in ascending order, DF = 0
+    27                                          moveToD: ; put sir in d first, then sort it there
+    28 00000010 A5                                  movsd ; move from ESI to EDI, then esi+=4, edi+=4, basically putting the string at ESI in EDI        
+    29 00000011 E214                            loop orderIncreasing
+    30                                          
+    31                                          ; ecx will be 0 ONLY IF the string d is sorted, thus exiting the main loop!
+    32                                          notSorted:
+    33 00000013 BE[0C000000]                        mov esi, d
+    34 00000018 BF[0C000000]                        mov edi, d 
+    35                                              ; so the destination and source are the same, thus swapping elements successfully at the same loc.
+    36                                              ; example: 4 3 2, we are at offset 0, so swap 4 and 3 in the same source as destination
+    37                                              ; becomes 3 4 2, then when we go offset+4 -> 4 2, because the source string gets changed!
+    38                                              ; so the swap was made in the destination that is actually the source
+    39 0000001D BA01000000                          mov edx, 1 ; remains 1 if no swapping, so it's sorted
+    40 00000022 B902000000                          mov ecx, s_len-1 ;compare current with next element, so iterate only to the second to last element
+    41                                              orderIncreasing:
+    42 00000027 AD                                      lodsd ; load from esi into eax, esi+=4
+    43 00000028 89C3                                    mov ebx, eax ; eax = ebx
+    44 0000002A AD                                      lodsd ; again, the next element after it, in eax
+    45                                                  ;thing is, now esi is after two elements, but we need it at esi+4 so we compare esi+4 with esi+8 next
+    46                                                  ; but now it's at esi+8, so subtract 4 from it
+    47 0000002B 83EE04                                  sub esi, 4
+    48                                                  
+    49                                                  ; if ebx > eax, swap them 
+    50 0000002E 39C3                                    cmp ebx, eax ; since we compare "high words", basically the whole numbers as they are in hexa
+    51                                                  ; we can assume they are UNSIGNED
+    52                                                  
+    53 00000030 760E                                    JBE notSwap ; if EBX<=EAX (below or equal), don't swap them, so go in the loop after the swapping
+    54                                                  
+    55                                                  ; we are swapping, so put 2 in EDX to put after the end in ECX to contineu running the main loop
+    56 00000032 BA02000000                              mov EDX, 2
+    57                                                  
+    58                                                  ; how do we swap them? so we had compared [esi] and [esi+4], now esi is esi+8
+    59                                                  ; so if we swap them put them in the destination edi=esi, and at edi+4, but in reverse order
+    60                                                  
+    61 00000037 AB                                      stosd ; put eax ([esi+4]) in edi
+    62 00000038 89D8                                    mov EAX, EBX
+    63 0000003A AB                                      stosd; put eax ( first [esi] in EBX) in edi+4
+    64                                                  ;now, edi is after two elements, but we want to compare the next one with the one after two elems
+    65                                                  ;so subtract 4 from it to go back one element in the string
+    66 0000003B 83EF04                                  sub edi, 4
+    67 0000003E EB03                                    jmp endOfLoop ; go to the end of loop so the not swapping doesn't occur
+    68                                                  
+    69                                                  notSwap: ; if we don't swap them, do nothing, just increment EDI with 4 to go to the next element
+    70 00000040 83C704                                  add edi, 4               
+    71                                                  
+    72                                                  endOfLoop:
+    73                                                  
+    74 00000043 E2E2                                loop orderIncreasing
+    75 00000045 89D1                                mov ECX, EDX ; 2 if did swapping, 1 if not swapping, so sorted => exit the loop (do 1-1=0 so exit it)
+    76 00000047 E2CA                            loop notSorted
+    77                                          
+    78                                          ;now that sir is sorted in the string d, store the lower words of sir in the lower words of d
+    79                                          ; in the same order as in the initial sir, BUT the higher words in d will ofc remain sorted as they are ascendingly
+    80 00000049 BE[00000000]                    mov esi, sir ; take lower words from sir
+    81 0000004E BF[0C000000]                    mov edi, d ; we do the swapping of lower words in d
+    82 00000053 B903000000                      mov ecx, s_len
+    83                                          
+    84                                          swapLowerWords:
+    85 00000058 AD                                  lodsd ; put current element of sir in EAX, take the lower word from it
+    86 00000059 25FFFF0000                          and EAX, 0x0000FFFF ;basically make the higher word 0, and the lower word remains the same
+    87                                              ; bits 1 and 1 remain the same, 0 and 1 from eax and the dword 0000FFFF remain 0 as in EAX
+    88 0000005E 8B1F                                mov EBX, dword[edi] ; take the dword from d too, because we have to work with it, put it in EBX
+    89 00000060 81E30000FFFF                        and EBX, 0xFFFF0000 ; the same way as above, isolate the higher word from EBX
+    90 00000066 09D8                                or EAX, EBX ; now merge them, and EAX will have the higher part of [edi] and the lower part of [esi
+    91 00000068 AB                                  stosd ;store EAX at [edi], edi+=4 to go to the next element to do this for
+    92                                              
+    93 00000069 E2ED                            loop swapLowerWords
+    94                                          ; exit(0)
+    95 0000006B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    96 0000006D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

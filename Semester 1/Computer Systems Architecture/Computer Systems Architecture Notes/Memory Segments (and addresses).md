@@ -110,6 +110,8 @@ so a **FAR** address is a ==COMPLETE ADDRESS SPECIFICATION== and it may be speci
 ##### 2. Immediate mode 
 `mov eax, 17 <- second operand`
 ##### 3. Memory addressing mode
+
+[[Offset formula|Why do we use the offset formula?]]
 ###### offset of an operand formula 2 AM FORMULA 
 ```
 offset_address = [base] + [index*scale] + [constant]
@@ -154,5 +156,5 @@ the process of allocating
 
 ```
 
-
+Now, to work with the offset formula, we have to use [[Pointer arithmetic]]
 

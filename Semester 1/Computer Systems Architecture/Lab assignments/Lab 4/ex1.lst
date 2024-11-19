@@ -20,49 +20,16 @@
     20                                  ; the bits 6-7 of C are the same as the bits 1-2 of B
     21                                  ; the bits 8-23 of C are the same as the bits of A
     22                                  ; the bits 24-31 of C are the same as the bits of B
-    23                                  segment code use32 class=code
-    24                                      start:
-    25 00000000 BB00000000                      mov ebx, 0 ; result (C) will 
-    26                                             
-    27 00000005 B800000000                      mov eax, 0 
-    28 0000000A 66A1[00000000]                  mov ax, word[a] ;ax = a so eax = a
-    29 00000010 6625C003                        and ax, 0x03C0 ; isolate bits 6-9 of A, so now AX = 0 in bits 0-5 and 10-15, but on bits 6-9 are the bits of A
-    30                                          ; and the rest of the bytes of eax are 0, so it's good
-    31                                          ; now since EAX has the bits 6-9 of A on the same positions, rotate them 6 positions to the right
-    32                                          ; to make them bits 0-3 of EAX, then or them with C to make them the bits 0-3 of C
-    33 00000014 B106                            mov cl, 6
-    34 00000016 D3C8                            ror eax, cl 
-    35 00000018 0905[03000000]                  or dword[c], eax ; now C has bits 6-9 of A
-    36                                          
-    37 0000001E 830D[03000000]30                or dword[c], 0x00000030 ; or the dword c with a dword that only has bits 4-5 set (second hexadecimal is 0011 (bits 4-7)
-    38                                          
-    39 00000025 B800000000                      mov eax, 0
-    40 0000002A A0[02000000]                    mov al, byte[b] ; al = b, so eax = b
-    41 0000002F 2406                            and al, 00000110b ; isolate bits 1-2 of B in al, and the rest of eax bits are 0
-    42                                          ; rotate them 5 positions to the left to make them bits 6-7 of AL, so of EAX too in this case
-    43 00000031 B105                            mov cl, 5
-    44 00000033 D3C0                            rol eax, cl
-    45 00000035 0905[03000000]                  or dword[c], eax ;or them with c and that makes bits 6-7 of C the same as bits 6-7 of eax (bits 1-2 of B)
-    46                                          ; because all the unset bits in C are 0 
-    47                                          
-    48                                          ;to put all the bits of A in the bits 8-23 of C, put the bits of A in eax, so we can shift them to the left
-    49                                          ; even if A is a word
-    50 0000003B B800000000                      mov eax, 0
-    51 00000040 66A1[00000000]                  mov ax, word[a]
-    52                                          ; now eax = a, in bits 0-15 is A, rotate them to the left 8 positions to make them bits 8-23 of EAX, then or them with C
-    53 00000046 B108                            mov cl, 8
-    54 00000048 D3C0                            rol eax, cl
-    55 0000004A 0905[03000000]                  or dword[c], eax
-    56                                          
-    57                                          ;same principle for B, make eax 0, put it in AL, they're bits 0-7, shift them left 24 positions to make them bits 24-31
-    58                                          ; of EAX, then or with c to put bits 24-31 of eax in bits 24-31 of C, which are the bits of A
-    59 00000050 B800000000                      mov eax, 0
-    60 00000055 A0[02000000]                    mov al, byte[b]
-    61 0000005A B118                            mov cl, 24
-    62 0000005C D3C0                            rol eax, cl
-    63 0000005E 0905[03000000]                  or dword[c], eax
-    64                                          
-    65                                      
-    66                                          ; exit(0)
-    67 00000064 6A00                            push    dword 0      ; push the parameter for exit onto the stack
-    68 00000066 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
+    23                                  
+    24                                  ; here C should be at the end  0011 0101 1101 0111 0010 0011 1011 1100, and it is
+    25                                  segment code use32 class=code
+    26                                      start:
+    27 00000000 B933221100                      mov ecx, 0x00112233
+    28 00000005 51                              push ecx
+    29 00000006 66B80500                        mov ax, 0x0005
+    30 0000000A 58                              pop eax
+    31                                          
+    32                                      
+    33                                          ; exit(0)
+    34 0000000B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    35 0000000D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

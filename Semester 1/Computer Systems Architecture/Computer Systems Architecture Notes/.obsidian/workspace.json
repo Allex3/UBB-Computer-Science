@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "255f5c90f497485a",
+        "id": "6046a9ba581d0d97",
         "type": "tabs",
         "children": [
           {
-            "id": "2a759a75bbcc5d2f",
+            "id": "753de875c27dfa9d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Memory Segments (and addresses).md",
+                "file": "Assembly Language Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Memory Segments (and addresses)"
+              "title": "Assembly Language Basics"
+            }
+          },
+          {
+            "id": "8381df63ef5c5fd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Seminaries/Seminar 4 - Strings, segments.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Seminar 4 - Strings, segments"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -163,31 +178,39 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2a759a75bbcc5d2f",
+  "active": "8381df63ef5c5fd2",
   "lastOpenFiles": [
-    "Lectures/Lecture 5 - Segments, Buses.md",
+    "Seminaries/Seminar 3 - JUMPS.md",
+    "Seminaries/Seminar 4 - Strings, segments.md",
+    "Assembly Language Basics.md",
+    "Assembly - operators.md",
+    "Exam Questions/WHAT SEGMENT WILL BE ACCESSED.md",
+    "Offset formula.md",
+    "Location Counter.md",
+    "Pointer arithmetic.md",
+    "Exam Questions/Jumps, Loops.md",
     "Memory Segments (and addresses).md",
-    "BIU (Bus Interface Unit) Registers.md",
-    "ALU.md",
+    "Seminaries/Seminar 1  - Data and memory.md",
+    "Jumps - CMP, TEST.md",
+    "Labs/Lab 4 - Instructions on strings (arrays).md",
+    "Labs/Lab 3 - Flags and signed instructions.md",
     "EFLAGS.md",
+    "Images/Pasted image 20241104124643.png",
+    "ASC.md",
+    "Lectures/Lecture 5 - Segments, Buses.md",
+    "Seminaries/Seminar 2 - Signed, unsigned, conversions, stack.md",
+    "BIU (Bus Interface Unit) Registers.md",
+    "Exam Questions/Stack related.md",
+    "Lectures/Lecture 3 - EFLAGS (& ALU).md",
+    "ALU.md",
     "Images/x86.png",
     "Exam Questions/Two's complement questions.md",
-    "Exam Questions/Stack related.md",
     "Lectures/Lecture 4 - Two's complement.md",
     "Pasted image 20241029011727.png",
     "Pasted image 20241029011724.png",
-    "Seminaries/Seminary 2 - Signed, unsigned, conversions, stack.md",
-    "Labs/Lab 3 - Flags and signed instructions.md",
-    "Seminaries/Seminary 1 - Data and memory.md",
     "Images/Stack.md",
-    "Lectures/Lecture 3 - EFLAGS (& ALU).md",
     "2's Complement.md",
     "Exam Questions",
-    "Exam.md",
-    "[[Exam.md",
-    "Exam questions 1.md",
-    "Excalidraw/Drawing 2024-10-17 18.43.20.excalidraw.md",
-    "Excalidraw/Drawing 2024-10-21 17.04.18.excalidraw.md",
     "Images/TwosComplement.png",
     "Images",
     "Pasted image 20241029005944.png",
@@ -195,9 +218,6 @@
     "Seminaries",
     "Labs",
     "Excalidraw",
-    "Untitled 1.md",
-    "Lectures/dsdfas.md",
-    "CSA.md",
     "Lectures"
   ]
 }

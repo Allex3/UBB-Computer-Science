@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Subjects/Vector Spaces - Linear independence.md",
+                "file": "Projects/Project 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vector Spaces - Linear independence"
+              "title": "Project 4"
             }
           },
           {
@@ -111,16 +111,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Subjects/Groups and Rings.md",
+                "file": "Projects/Project 4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Groups and Rings"
+              "title": "Project 4"
+            }
+          },
+          {
+            "id": "48af94b45c8f9d0d",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -261,17 +273,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "19d61a170d143afe",
+  "active": "48af94b45c8f9d0d",
   "lastOpenFiles": [
+    "Subjects/Groups and Rings.md",
+    "Projects/Project 4.md",
+    "Subjects/Vector Spaces - Linear maps.md",
+    "Subjects/Vector Spaces - Linear independence.md",
     "Subjects/Vector Spaces - Generators.md",
     "Subjects/Vector Spaces - Properties.md",
-    "Subjects/Vector Spaces - Linear independence.md",
     "Subjects/Subgroups and Subrings.md",
     "Subjects/Vector Spaces - Subspaces.md",
-    "Subjects/Vector Spaces - Linear maps.md",
     "Seminars/Seminar 6 - Basis.md",
     "Seminars/Seminar 7 - Dimension.md",
-    "Subjects/Groups and Rings.md",
     "Subjects/Relations.md",
     "Untitled",
     "Theorem 1.6.3.md",

@@ -27,16 +27,156 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Seminaries/Seminar 4 - Strings, segments.md",
+                "file": "Exam Questions/Stack related.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Seminar 4 - Strings, segments"
+              "title": "Stack related"
+            }
+          },
+          {
+            "id": "84ea43dd7b9abd41",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exam Questions/Stack related.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Stack related"
+            }
+          },
+          {
+            "id": "2337a05291750d17",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exam Questions/Operation errors - push, pop, memory.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Operation errors - push, pop, memory"
+            }
+          },
+          {
+            "id": "759edc9c63281303",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exam Questions/Operation errors - push, pop, memory.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Operation errors - push, pop, memory"
+            }
+          },
+          {
+            "id": "206255ce0feac44a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Exam Questions/Overflow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Overflow"
+            }
+          },
+          {
+            "id": "de0c8b6091b2cc13",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Overflow concept analysis.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Overflow concept analysis"
+            }
+          },
+          {
+            "id": "becd1cfde8c290cb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Memory Segments (and addresses).md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Memory Segments (and addresses)"
+            }
+          },
+          {
+            "id": "e3559c9608b8a2e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "EFLAGS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "EFLAGS"
+            }
+          },
+          {
+            "id": "ebe1c9c83312e577",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Memory layout in data transfer instr..md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Memory layout in data transfer instr."
+            }
+          },
+          {
+            "id": "6a1436837c34453f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Data transfer instructions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Data transfer instructions"
+            }
+          },
+          {
+            "id": "8cab84826825d48a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LHS and RHS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LHS and RHS"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -178,38 +318,39 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "8381df63ef5c5fd2",
+  "active": "db6d215f9296ab47",
   "lastOpenFiles": [
-    "Seminaries/Seminar 3 - JUMPS.md",
-    "Seminaries/Seminar 4 - Strings, segments.md",
-    "Assembly Language Basics.md",
-    "Assembly - operators.md",
-    "Exam Questions/WHAT SEGMENT WILL BE ACCESSED.md",
-    "Offset formula.md",
-    "Location Counter.md",
-    "Pointer arithmetic.md",
-    "Exam Questions/Jumps, Loops.md",
     "Memory Segments (and addresses).md",
-    "Seminaries/Seminar 1  - Data and memory.md",
-    "Jumps - CMP, TEST.md",
-    "Labs/Lab 4 - Instructions on strings (arrays).md",
-    "Labs/Lab 3 - Flags and signed instructions.md",
-    "EFLAGS.md",
-    "Images/Pasted image 20241104124643.png",
-    "ASC.md",
+    "Exam Questions/WHAT SEGMENT WILL BE ACCESSED.md",
+    "Exam Questions/Untitled.md",
+    "Exam Questions/7 December.md",
+    "Location Counter.md",
+    "Data definition directives.md",
+    "Seminaries/Seminar 3 - JUMPS.md",
     "Lectures/Lecture 5 - Segments, Buses.md",
-    "Seminaries/Seminar 2 - Signed, unsigned, conversions, stack.md",
-    "BIU (Bus Interface Unit) Registers.md",
+    "LHS and RHS.md",
+    "Data transfer instructions.md",
+    "Memory layout in data transfer instr..md",
+    "Data management.md",
+    "Location counter and pointer arithmetic.md",
+    "Exam Questions/Jumps, Loops.md",
+    "Exam Questions/Operation errors - push, pop, memory.md",
+    "Exam Questions/Overflow.md",
+    "Exam Questions/Session Exam.md",
     "Exam Questions/Stack related.md",
-    "Lectures/Lecture 3 - EFLAGS (& ALU).md",
-    "ALU.md",
-    "Images/x86.png",
+    "Exam Questions/Shifts and rotates.md",
     "Exam Questions/Two's complement questions.md",
+    "Assembly Language Basics.md",
+    "EFLAGS.md",
+    "Jumps - CMP, TEST.md",
+    "Untitled.md",
     "Lectures/Lecture 4 - Two's complement.md",
+    "Overflow concept analysis.md",
+    "Pasted image 20241121181909.png",
+    "Images/Pasted image 20241104124643.png",
+    "Images/x86.png",
     "Pasted image 20241029011727.png",
     "Pasted image 20241029011724.png",
-    "Images/Stack.md",
-    "2's Complement.md",
     "Exam Questions",
     "Images/TwosComplement.png",
     "Images",

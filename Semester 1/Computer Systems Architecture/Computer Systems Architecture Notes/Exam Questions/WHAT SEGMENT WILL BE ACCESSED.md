@@ -61,3 +61,4 @@ mov eax, [ebp*1+ebx*2] ; SS
 ONLY EBP*1 can be the base, because ebx*2 has a scale with it
 So EBX taken as scale, and ebp*1=ebp as base => SS
 ```
+

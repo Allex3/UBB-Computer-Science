@@ -20,10 +20,19 @@ e dq 1, 2 => 2e*8bytes = 16 bytes, 16/8 = 2 elements
 lenB2 equ $-c-b => $-40k..-40k.. , goes outside of the segment
 ```
 
->[!question] How many times is the code executed? 
+### 2.
+
+>[!question] What happens if in the code below we have `jmp [eax]` instead of `jmp eax`?
 
 ```nasm
+mov eax, etich
+jmp eax ;register operand
+		; jmp [EAX] ?
+etich:...
 
+[EAX] is in DS, because we use OFFSET FORMULA WITH BASE EAX
+So we JUMP to contents of a memory address in the DATA SEGMENT
+If that memory address doesn't contain the dd offset of a label in CS, then it's probably memory violation ERROR
 ```
 
 >[!question] 

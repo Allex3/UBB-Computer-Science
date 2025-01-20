@@ -1,0 +1,1 @@
+![[Propositional T. of SC.png]]

@@ -1,0 +1,82 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 39302A51F411                sir DW 12345, 20778, 4596 
+    14                                      s_len equ ($-sir)/2
+    15 00000006 00<rept>                    result times 100 db 0
+    16 0000006A 00<rept>                    intermediary_inverse times 8 db 0
+    17 00000072 00000000                    last_result_loc dd 0
+    18 00000076 00000000                    counter dd 0
+    19                                  
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 BE[00000000]                    mov esi, sir
+    24 00000005 C705[72000000]-                 mov dword[last_result_loc], result
+    24 0000000B [06000000]         
+    25 0000000F B903000000                      mov ecx, s_len
+    26 00000014 FC                              cld
+    27                                          
+    28                                          digits_loop:
+    29 00000015 66AD                                lodsw ; AX = a word from the string
+    30 00000017 66BB0A00                            mov bx, 10  
+    31 0000001B 890D[76000000]                      mov [counter], ecx ; save ecx in counter
+    32 00000021 B900000000                          mov ecx, 0 ; infinite loop that exits when the word reaches 0 (take each digit of it)
+    33 00000026 BF[6A000000]                        mov edi, intermediary_inverse ; use this because from a number like 12345 digits will be 5 4 3 2 1
+    34                                              ; and we want to reverse them in the result
+    35                                              get_digits:
+    36 0000002B 66BA0000                                mov DX, 0 ; Use DX:AX to divide by 10 so the quotient still fits in AX , and the remainder in DX
+    37                                                  ; so basically AX the current number is successfully divided by 10 and remains still in AX
+    38                                                  ; and DX will be the digit, then DX will be 0 again but we only use a dword here so the result is still in AX and fits, a word
+    39 0000002F 66F7F3                                  div bx ; DX:AX/BX -> AX, remainder in DX, which is the last digit of AX
+    40 00000032 8817                                    mov byte[edi], DL ; digit in DL as it is only a byte
+    41 00000034 83C701                                  add edi, 1
+    42                                                  
+    43 00000037 6683F800                                cmp AX, 0
+    44 0000003B 7402                                    JE after_get_digits
+    45                                              
+    46 0000003D E2EC                                loop get_digits
+    47                                              
+    48                                              after_get_digits:
+    49 0000003F 89FA                                mov edx, edi ; we know that edi is 1 after the last digit in the intermedairy inverse (i.e. 1)
+    50 00000041 83EA01                              sub edx, 1 ; now edi is at 5, and if we go in inverse order it will be 1 2 3 4 5, put it this way in result
+    51 00000044 8B3D[72000000]                      mov edi, [last_result_loc] ; where we remained in the result
+    52                                              
+    53 0000004A 89D1                                mov ecx, edx
+    54 0000004C 81E9[6A000000]                      sub ecx, intermediary_inverse ; so now it has the number of elements - 1 (edx-starting address)
+    55                                              ; this happens because it is indexed from 0, so 5 elements would look like 0 1 2 3 4, but its 4-0+1
+    56 00000052 41                                  inc ecx ; so add 1
+    57 00000053 E328                                jecxz end_of_file
+    58                                              put_result:
+    59 00000055 8A02                                    mov AL, [edx]
+    60 00000057 4A                                      dec edx ; edx--, so we go to 2 now
+    61 00000058 AA                                      stosb ; [edi] = AL, edi++
+    62                                                  
+    63 00000059 E2FA                                loop put_result
+    64                                              
+    65                                              
+    66 0000005B 893D[72000000]                      mov dword[last_result_loc], edi ; here we got after input in the result file
+    67 00000061 8B0D[76000000]                      mov ecx, [counter] ; get back the value of ecx
+    68 00000067 C705[6A000000]0000-                 mov dword[intermediary_inverse], 0
+    68 0000006F 0000               
+    69 00000071 C705[6E000000]0000-                 mov dword[intermediary_inverse+4], 0 ; basically resetting all the 8 bytes in the string
+    69 00000079 0000               
+    70                                              
+    71                                              
+    72                                          
+    73 0000007B E298                            loop digits_loop
+    74                                          
+    75                                          end_of_file:
+    76                                      
+    77                                          ; exit(0)
+    78 0000007D 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    79 0000007F FF15[00000000]                  call    [exit]       ; call exit to terminate the program

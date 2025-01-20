@@ -1,0 +1,91 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, fread, printf, fclose, fopen             ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  import fread msvcrt.dll
+    11                                  import printf msvcrt.dll
+    12                                  import fclose msvcrt.dll
+    13                                  import fopen msvcrt.dll
+    14                                  
+    15                                  ; A text file is given. Read the content of the file, count the number of letters 'y' and 'z' and display the values on the screen. The file name is defined in the data segment.
+    16                                  segment data use32 class=data
+    17 00000000 385F31362E74787400          file_name db "8_16.txt", 0
+    18 00000009 00000000                    y_count dd 0
+    19 0000000D 00000000                    z_count dd 0
+    20 00000011 7200                        access_mode db "r", 0
+    21 00000013 FFFFFFFF                    file_descriptor dd -1
+    22 00000017 7920636F756E743A20-         format db "y count: %u, z count: %u", 0
+    22 00000020 25752C207A20636F75-
+    22 00000029 6E743A20257500     
+    23                                      
+    24 00000030 00000000                    character dd 0
+    25                                  
+    26                                  ; our code starts here
+    27                                  segment code use32 class=code
+    28                                      start:
+    29 00000000 68[11000000]                    push dword access_mode
+    30 00000005 68[00000000]                    push dword file_name
+    31 0000000A FF15[00000000]                  call [fopen]
+    32 00000010 83C408                          add esp, 2*4
+    33                                          
+    34 00000013 A3[13000000]                    mov [file_descriptor], eax
+    35                                          
+    36 00000018 83F800                          cmp eax, 0
+    37 0000001B 744A                            je end_of_file
+    38                                          
+    39 0000001D B900000000                      mov ecx, 0 ;infinite loop :3
+    40                                          count_y_and_z: ; we read character by character using fread(character, 1, 1, file_descriptor)
+    41 00000022 FF35[13000000]                      push dword[file_descriptor]
+    42 00000028 6A01                                push dword 1
+    43 0000002A 6A01                                push dword 1
+    44 0000002C 68[30000000]                        push character
+    45 00000031 FF15[00000000]                      call [fread]
+    46 00000037 83C410                              add esp, 4*4
+    47                                              
+    48                                              ; eax = numbers of characters we read, if it is 0 we reached EOF and exit the loop!
+    49 0000003A 83F800                              cmp eax, 0
+    50 0000003D 7428                                je end_of_file
+    51                                              
+    52 0000003F 803D[30000000]79                    cmp byte[character], 'y'
+    53 00000046 740B                                je count_y
+    54                                              
+    55 00000048 803D[30000000]7A                    cmp byte[character], 'z'
+    56 0000004F 740B                                je count_z
+    57                                              
+    58                                              ; it's neither y, nor z, so go to end of loop
+    59 00000051 EB12                                jmp end_of_loop
+    60                                              
+    61                                              count_y:
+    62 00000053 8305[09000000]01                        add dword[y_count], 1
+    63 0000005A EB09                                    jmp end_of_loop
+    64                                              
+    65                                              count_z:
+    66 0000005C 8305[0D000000]01                        add dword[z_count], 1
+    67 00000063 EB00                                    jmp end_of_loop
+    68                                              
+    69                                              end_of_loop:
+    70                                              
+    71 00000065 E2BB                            loop count_y_and_z    
+    72                                          
+    73                                  
+    74                                          
+    75                                          end_of_file:
+    76                                          
+    77 00000067 FF35[0D000000]                  push dword [z_count]
+    78 0000006D FF35[09000000]                  push dword [y_count]
+    79 00000073 68[17000000]                    push dword format
+    80 00000078 FF15[00000000]                  call [printf]
+    81 0000007E 83C40C                          add esp, 4*3
+    82                                          
+    83 00000081 FF35[13000000]                  push dword [file_descriptor]
+    84 00000087 FF15[00000000]                  call [fclose]
+    85 0000008D 83C404                          add esp, 4
+    86                                      
+    87                                          ; exit(0)
+    88 00000090 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    89 00000092 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

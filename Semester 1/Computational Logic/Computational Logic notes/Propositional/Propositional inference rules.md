@@ -1,0 +1,3 @@
+
+---
+![[Propositional inference rules.png]]

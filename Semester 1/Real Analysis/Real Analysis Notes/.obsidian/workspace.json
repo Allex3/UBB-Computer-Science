@@ -1,0 +1,170 @@
+{
+  "main": {
+    "id": "a0d2bfaebda6dacb",
+    "type": "split",
+    "children": [
+      {
+        "id": "2c395a24ab492a58",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5aa8b1964e4e3161",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Supremum and infimum.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Supremum and infimum"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0400923dda15f42b",
+    "type": "split",
+    "children": [
+      {
+        "id": "1a6af31cc8186848",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ddde3e0d40c1e2b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e5860f3be3a6db9d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "64dc603eb8b8c2bd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "f32b1c3104b76f35",
+    "type": "split",
+    "children": [
+      {
+        "id": "3a3fdcad038d20af",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a0a606a8ccb8e06",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Supremum and infimum.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Supremum and infimum"
+            }
+          },
+          {
+            "id": "df5dd4f70236356f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Supremum and infimum.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Supremum and infimum"
+            }
+          },
+          {
+            "id": "3dfb05b866d950f8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0e056bda5ed05409",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Supremum and infimum.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Supremum and infimum"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "5aa8b1964e4e3161",
+  "lastOpenFiles": [
+    "Supremum and infimum.md"
+  ]
+}

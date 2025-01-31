@@ -1,4 +1,4 @@
-
+k
 - **CNF and DNF** - **SEMANTIC** and **DIRECT** methods.
 ---
 

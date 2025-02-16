@@ -10,7 +10,7 @@
 
 ### [EFLAGS Register](EFLAGS)
 
-[EFLAGS:LPO]**LPO - Last Performed Operation, this is what sets a flag usually**, but not always
+[EFLAGS:LPO] **LPO - Last Performed Operation, this is what sets a flag usually**, but not always
 - Working with carry flags isn't recommended
 
  Zero is considered **positive** in two's complement

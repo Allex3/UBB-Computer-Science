@@ -33,7 +33,7 @@ The two's complement of a two's complement of a number is the number itself
 
 Suma valorilor absolute ale celor valori complementare in baza 10 este cardinalul multimii numerelor reprezentate pe acea dimensiune (2^n) 
 **Definition**: The sum of the absolute values of the two complementary values is the cardinal of the set of values representable on that size
-For a binary representations that begins with 1, there will always be **two interpretations for it, signed and unsigned**: -109 and 147 for 10010011, and the two's complement of that number is 109, and 109+147 = 256 = 2^8 so all the numbers that can be represented on 8 bits
+For binary representation that begins with 1, there will always be **two interpretations for it, signed and unsigned**: -109 and 147 for 10010011, and the two's complement of that number is 109, and 109+147 = 256 = 2^8 so all the numbers that can be represented on 8 bits
 it is 
 >[!INFO] It follows that, because the sum of the number and it's complement being 2^n, the **SIGNED** interpretation for it is 2^n - (unsigned interpretation (basic base 2 to base 10 conversion))
 >e.g. 256 - 147 = 109, so the complement of 147 is 109, thus 147 in binary is in two's complement representation -109 (because -109's two's complement is 109, so this **MUST** be true)

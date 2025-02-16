@@ -90,9 +90,21 @@
               "icon": "lucide-file",
               "title": "Exam Notes"
             }
+          },
+          {
+            "id": "3a5fd1e364c84aa5",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.3"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.3"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -111,7 +123,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -233,7 +246,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b561ef64fa1d73c7",
+  "active": "3a5fd1e364c84aa5",
   "lastOpenFiles": [
     "Predicate/Deduction Definition.md",
     "Predicate/Semantic Tableaux Method.md",

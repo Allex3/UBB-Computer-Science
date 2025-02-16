@@ -1,0 +1,5 @@
+[run]
+    source = .
+    omit = ./src/tests.py, ./src/repository/binary_repo.py, ./src/repository/text_repo.py
+[report]
+ omit = ./src/tests.py, ./src/repository/binary_repo.py, ./src/repository/text_repo.py

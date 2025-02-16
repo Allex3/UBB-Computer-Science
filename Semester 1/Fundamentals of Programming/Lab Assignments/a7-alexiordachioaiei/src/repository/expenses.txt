@@ -1,0 +1,13 @@
+Expense of type a is due on day 15 for 543
+Expense of type b is due on day 5 for 957
+Expense of type c is due on day 19 for 389
+Expense of type d is due on day 16 for 756
+Expense of type e is due on day 9 for 18
+Expense of type f is due on day 17 for 290
+Expense of type g is due on day 30 for 447
+Expense of type h is due on day 30 for 248
+Expense of type i is due on day 3 for 347
+Expense of type j is due on day 15 for 770
+Expense of type oooo is due on day 15 for 10
+Expense of type gfjdsdgj is due on day 4 for 4
+Expense of type jfdjads is due on day 10 for 20

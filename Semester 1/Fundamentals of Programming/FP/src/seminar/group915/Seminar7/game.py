@@ -1,25 +1,3 @@
-from Seminar915.Seminar7.board import moveBoard, getBoard
-from random import randint
-
-def humanMove(board, x: int, y: int):
-    moveBoard(board, x, y, 'X')
-
-def computerMove(board):
-    x, y = getNextComputerMove(board)
-    moveBoard(board, x, y, 'O')
-
-def getNextComputerMove(board):
-    """
-    Decides where the computer places its next move
-    TODO: Implement a version that prevents human's moves
-    :param board: the board
-    :return: x, y - the positions of the next move
-    """
-    found = False
-    while not found:
-        x = randint(0, 2)
-        y = randint(0, 2)
-
-        if getBoard(board, x, y) == 0:
-            return x, y
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec9f9b532fd3c46b7cd3d69ba4f746009f6f684e6948e83e4af3c1e331a63af2
+size 646

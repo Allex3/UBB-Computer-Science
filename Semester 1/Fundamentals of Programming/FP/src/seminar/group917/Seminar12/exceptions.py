@@ -1,19 +1,3 @@
-
-class BoardException(Exception):
-    def __init__(self, message):
-        self.__message = message
-
-    def __str__(self):
-        return self.__message
-
-class OutOfBoundsException(BoardException):
-    def __init__(self):
-        super().__init__("Position out of bounds")
-
-class AlreadyHitException(BoardException):
-    def __init__(self):
-        super().__init__("Position already hit")
-        #BoardException.__init__("Position already hit")
-
-class GameOver(Exception):
-    pass
+version https://git-lfs.github.com/spec/v1
+oid sha256:1657b07ba4795be5531a090cd67f8231652ac9c01c3152c957f6b88d51fc1b96
+size 484

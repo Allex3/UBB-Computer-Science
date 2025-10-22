@@ -1,15 +1,3 @@
-from ex09_binary_search import binary_search_impl
-
-
-def exponential_search(data: list, key):
-    if len(data) == 0 or data[0] > key or data[-1] < key:
-        return -1
-
-    if data[0] == key:
-        return 0
-
-    i = 1
-    while i < len(data) and data[i] <= key:
-        i = i * 2
-
-    return binary_search_impl(data, key, i // 2, min(i, len(data) - 1))
+version https://git-lfs.github.com/spec/v1
+oid sha256:72f76dd3279326ab43b862a2e5e946a43e96672cf75c13ed445a3f1d162249eb
+size 356

@@ -1,21 +1,3 @@
-0 - Stacey Whitaker - 2
-1 - Randy Contreras - 3
-2 - Mary Gaines - 1
-3 - Mathew Lynn - 1
-4 - Anthony Gonzalez - 3
-5 - Michael Marshall - 2
-6 - Paul Robinson - 1
-7 - Catherine Smith - 3
-8 - Ann Smith - 2
-9 - Samantha Long - 2
-10 - Daniel Thompson - 1
-11 - Elijah West - 2
-12 - Mrs. Amanda Acosta - 3
-13 - Lindsey Rodriguez - 2
-14 - Alison Lloyd - 3
-15 - Melanie Rodriguez - 1
-16 - Melissa Adams - 1
-17 - Andrea Williams - 3
-18 - Bryan Nelson - 3
-19 - Michael Barnett - 2
-100 - Alex - 3
+version https://git-lfs.github.com/spec/v1
+oid sha256:e064b3bfe58e52f87cbd855b6e4a390ab496597c895aebb3f7272b50ed30b56f
+size 484

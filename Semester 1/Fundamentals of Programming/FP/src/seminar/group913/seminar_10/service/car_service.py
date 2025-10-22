@@ -1,10 +1,3 @@
-from seminar.group913.seminar_10.repository.memory_repo import MemoryRepository
-from seminar.group913.seminar_9.domain.car import Car
-
-
-class CarService:
-    def __init__(self, repo: MemoryRepository):
-        self._repo = repo
-
-    def get(self, car_id: int) -> Car:
-        return self._repo[car_id]
+version https://git-lfs.github.com/spec/v1
+oid sha256:a185266c4717b06a742bc3e009da047125b5102e93b57e7a552dfc217f60bf0f
+size 302

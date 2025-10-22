@@ -1,28 +1,3 @@
-from random import randint
-
-from Seminar916.Seminar12.exceptions import BoardExceptions
-
-
-class ComputerGame:
-    def __init__(self, ownBoard, opponentBoard):
-        self.__ownBoard = ownBoard
-        self.__opponentBoard = opponentBoard
-
-    def placeShip(self):
-        try:
-            row = randint(0, self.__ownBoard.size - 1)
-            column = randint(0, self.__ownBoard.size - 4)
-            self.__ownBoard.placeShip(row, column)
-        except BoardExceptions:
-            self.placeShip()
-
-    def hit(self):
-        try:
-            row = randint(0, self.__opponentBoard.size - 1)
-            column = randint(0, self.__opponentBoard.size - 1)
-
-            self.__opponentBoard.hit(row, column)
-            return row, column
-        except BoardExceptions:
-            self.hit()
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5f544589c5f39fc977f29451d541e1e564483d14612a9c0e3c5e4a3d9416af5
+size 797

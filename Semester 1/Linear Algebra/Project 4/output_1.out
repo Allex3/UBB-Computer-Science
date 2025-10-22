@@ -1,9 +1,3 @@
-1. the number of 2-dimensional subspaces of the vector space Z_2^3 over Z_2 is 7
-2. A basis of each such subspace is:
-((0, 0, 1), (0, 1, 0))
-((0, 0, 1), (1, 0, 0))
-((0, 0, 1), (1, 1, 0))
-((0, 1, 0), (1, 0, 0))
-((0, 1, 0), (1, 0, 1))
-((0, 1, 1), (1, 0, 0))
-((0, 1, 1), (1, 0, 1))
+version https://git-lfs.github.com/spec/v1
+oid sha256:21ad6193c55b5fdce74d5374cba115278aa7dec016061cb2180cc536ce97709b
+size 278

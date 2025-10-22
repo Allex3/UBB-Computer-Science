@@ -1,13 +1,3 @@
-{
-	"id": "local-backup",
-	"name": "Local Backup",
-	"version": "0.1.8",
-	"minAppVersion": "0.15.0",
-	"description": "Automatically creates a local backup of the vault.",
-	"author": "GC Chen",
-	"authorUrl": "https://github.com/cgcel/obsidian-local-backup",
-	"fundingUrl": "https://www.buymeacoffee.com/cgcel",
-	"isDesktopOnly": true,
-	"js": "main.js",
-	"tags": ["backup"]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:2586e33b5e0b92eecb023cd05fb15adc0073def7e7ff3b9d4af81623a08e4cb6
+size 372

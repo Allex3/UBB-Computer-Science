@@ -1,10 +1,3 @@
-from seminar.group914.seminar_10.domain.rental import Rental
-from seminar.group914.seminar_10.repository.memory_repo import MemoryRepository
-
-
-class RentalService:
-    def __init__(self, repo: MemoryRepository):
-        self._repo = repo
-
-    def get(self, rental_id: int) -> Rental:
-        return self._repo[rental_id]
+version https://git-lfs.github.com/spec/v1
+oid sha256:319d6a6f6d230e92a34b0ee6c29aa87c1768cad0501d586445ac90aacfc47b8f
+size 321

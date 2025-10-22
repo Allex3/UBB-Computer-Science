@@ -1,9 +1,3 @@
-from ui import UI
-from game import Game
-from board import Board
-
-if __name__ == "__main__":
-    board = Board()
-    game = Game(board)
-    UI = UI(game)
-    UI.run()
+version https://git-lfs.github.com/spec/v1
+oid sha256:7b006907607afc8df4a101af19667eac2aba645160f071f856a853c2f589ee78
+size 165

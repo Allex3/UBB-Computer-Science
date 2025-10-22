@@ -1,9 +1,3 @@
-class CarRentalException(Exception):
-    def __init__(self, msg):
-        self._message = msg
-
-    def getMessage(self):
-        return self._message
-
-    def __str__(self):
-        return self._message
+version https://git-lfs.github.com/spec/v1
+oid sha256:c2d9e0b798c367909359ec1934d195e384cf3115281dc391c29d7130153f6b22
+size 202

@@ -1,15 +1,3 @@
-from Seminar917.Seminar14.domain.flight import Flight
-from Seminar917.Seminar14.domain.exceptions import ValidationError
-
-class FlightValidator:
-    def validate(self, flight: Flight):
-        errors = []
-
-        if flight.departureCity == flight.arrivalCity:
-            errors.append("Flight should arrive at different airport")
-        if flight.departureTime > flight.arrivalTime:
-            errors.append("Flight should depart before arrival")
-        elif not 15 <= flight.arrivalTime - flight.departureTime <= 90:
-            errors.append("Flights must be between 15 and 90 minutes!")
-        if len(errors) > 0:
-            raise ValidationError(errors)
+version https://git-lfs.github.com/spec/v1
+oid sha256:7f128d02ee95e8b82b71e6700ea448dcd6b3300a123962d08a3a37c9007c0810
+size 664

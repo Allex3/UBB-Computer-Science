@@ -1,16 +1,3 @@
-![[x86.png]]
-### [[Memory Segments (and addresses)]] -Theory
-### Segment registers
-
-What do the registers contain (CS, DS, SS, ES, FS, GP)?
-- 16bits: the starting address of the segment is provided
-- 32bits: the starting address is NOT provided. **Instead**, the **segment selector** is issued by the OS
-on 32 bits, you cannot control the starting point of a segment, only the offset
-#### CS - Code segment
-#### DS - Data Segment
-#### SS - Stack Segment
-#### ES - Extra Segment (extra DATA segment)
-#### FS -
-#### GS - 
-
-### Address register - EIP
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5e04a4e623184adb70d00759d4027902a42d30992b3687108c76b01d500686f
+size 548

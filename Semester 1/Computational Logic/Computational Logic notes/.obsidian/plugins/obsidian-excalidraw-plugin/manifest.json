@@ -1,12 +1,3 @@
-{
-  "id": "obsidian-excalidraw-plugin",
-  "name": "Excalidraw",
-  "version": "2.6.5",
-  "minAppVersion": "1.1.6",
-  "description": "An Obsidian plugin to edit and view Excalidraw drawings",
-  "author": "Zsolt Viczian",
-  "authorUrl": "https://www.zsolt.blog",
-  "fundingUrl": "https://ko-fi.com/zsolt",
-  "helpUrl": "https://github.com/zsviczian/obsidian-excalidraw-plugin#readme",
-  "isDesktopOnly": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1904552149c31238309e34ec3b8772f482edb40d567eb5ea9cf8cfb9099071d6
+size 409

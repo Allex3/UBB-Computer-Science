@@ -1,7 +1,3 @@
-1. The number of partitions on a set A = {1, 2, 3} is 5
-2. using the notation ∆A = [(1, 1), (2, 2), (3, 3)], the partitions on a set A = {1, 2, 3} and their corresponding equivalence relations are:
-{{1, 2, 3}} ⇝ A × A
-{{1, 2}, {3}} ⇝ ∆A ∪ {(1, 2), (2, 1)}
-{{1, 3}, {2}} ⇝ ∆A ∪ {(1, 3), (3, 1)}
-{{1}, {2, 3}} ⇝ ∆A ∪ {(2, 3), (3, 2)}
-{{1}, {2}, {3}} ⇝ ∆A
+version https://git-lfs.github.com/spec/v1
+oid sha256:389c476e56e2713c34d1b81a12a8795bf5302a1a30d12de4c2c4340714e8ae6c
+size 379

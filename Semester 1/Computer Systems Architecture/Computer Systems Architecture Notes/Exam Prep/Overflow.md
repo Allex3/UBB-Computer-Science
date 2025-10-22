@@ -1,13 +1,3 @@
->[!important] 4 sequences of instructions 
->- Overflow yes/no
->- OF = ? CF = ?
->- Which of those 4 operations produce different results in OF/CF?
->- In which situations does the multiplication produce different values for OF/CF
-
-1 + 1 = 0
-0 + 0 = 1
-1 - 0 = 0
-0 - 1 = 1
-
->[!info] Division overflow = run-time error
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:10f8ce197351ef193e475e6ad57208bbc9c9eee109878e3a5c4c647cdacd190c
+size 315

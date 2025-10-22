@@ -1,23 +1,3 @@
-from random import randint
-
-from Seminar916.Seminar7.board import moveBoard, getBoardValue
-
-
-def humanMove(board, x : int, y: int):
-    moveBoard(board, x, y, 'X')
-
-def getNextComputerMove(board):
-    # TODO: Implement a more complex algorithm such that it might prevent the next moves of the human
-    found = False
-
-    while not found:
-        x = randint(0, 2)
-        y = randint(0, 2)
-
-        if getBoardValue(board, x, y) == 0:
-            return x, y
-
-def computerMove(board):
-    x, y = getNextComputerMove(board)
-    moveBoard(board, x, y, 'O')
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:3dddb6ab2f06e8f215e2211cb9c35a790768959e4f1407eb94210038aeb77afe
+size 557

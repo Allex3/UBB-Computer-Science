@@ -1,13 +1,3 @@
-from domain import Sentence
-from repository import Repository
-
-class Service:
-    def __init__(self, repo:Repository):
-        self.__repo=repo
-
-    def add(self, sentence_from_ui:str):
-        sentence=Sentence(sentence_from_ui)
-        self.__repo.add(sentence)
-
-    def get_all(self):
-        return self.__repo.get_all()
+version https://git-lfs.github.com/spec/v1
+oid sha256:910a6a5f5486e2ea6919132ea8c86ac62de2cf50033806a3dfd55496eb628c3a
+size 325

@@ -1,9 +1,3 @@
-
-- **CLD** -> 2 implicit operators: 
-**PUSH v** 
-- implicit: ESP (destination),
-- explicit: source: `v`
-`pop eax` - 2 operators
--  2source: ESP - implicit
-- destination: `eax` - explicit
-`mul reg/mem` (explicit), implicit = `AL/AX/DX:AX` -> `AX/DX:AX/EDX:EAX`
+version https://git-lfs.github.com/spec/v1
+oid sha256:b49112d31dc892bf493474f2e0c2e4f9dd1d80bd29ceac6669069380e789baba
+size 259

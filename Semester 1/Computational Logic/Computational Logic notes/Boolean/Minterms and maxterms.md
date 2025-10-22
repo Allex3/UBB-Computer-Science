@@ -1,10 +1,3 @@
-
-![[Minmaxterm def.png]]
-- There are $2^n$ minterms/maxterms
-	- $m_{i}$ is the i'th minterm, the exponents of the variables $(\alpha's)$ are the $i$ in binary form:
-		- n=2 $m_{2}$ = $m_{10} = x^1\land y^0 = x\land \overline{y}$ 
-	- Same thing with maxterms, just disjunction: n=2, $M_{2}=M_{10}=x^{\overline{1}}\lor y^{\overline{0}}=\overline{x}\lor y$
-
-![[Minterm Maxterm properties.png]]
-
-![[How to CCF DCF.png]]
+version https://git-lfs.github.com/spec/v1
+oid sha256:31cebf7c802ebf7256aba32d122bfe81435c15f4f70c9be056234c6c45a98777
+size 415

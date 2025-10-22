@@ -1,1 +1,3 @@
-1. the number of bases of the vector space Z_2^7 over Z_2 is 163849992929280
+version https://git-lfs.github.com/spec/v1
+oid sha256:d29087ab19c8a3cc42cab4cd95b29b91dc23523b170bda9c9240ef283bbb25ed
+size 77

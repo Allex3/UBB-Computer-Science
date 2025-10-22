@@ -1,35 +1,3 @@
-     1                                  bits 32 ; assembling for the 32 bits architecture
-     2                                  
-     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
-     4                                  global start        
-     5                                  
-     6                                  ; declare external functions needed by our program
-     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
-     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
-     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
-    10                                  
-    11                                  ; our data is declared here (the variables needed by our program)
-    12                                  segment data use32 class=data
-    13 00000000 23D7                        a dw 1101011100100011b
-    14 00000002 35                          b db 00110101b
-    15 00000003 00000000                    c dd 0
-    16                                  
-    17                                  ; Given the word A and the byte B, compute the doubleword C as follows:
-    18                                  ; the bits 0-3 of C are the same as the bits 6-9 of A
-    19                                  ; the bits 4-5 of C have the value 1
-    20                                  ; the bits 6-7 of C are the same as the bits 1-2 of B
-    21                                  ; the bits 8-23 of C are the same as the bits of A
-    22                                  ; the bits 24-31 of C are the same as the bits of B
-    23                                  
-    24                                  ; here C should be at the end  0011 0101 1101 0111 0010 0011 1011 1100, and it is
-    25                                  segment code use32 class=code
-    26                                      start:
-    27 00000000 B933221100                      mov ecx, 0x00112233
-    28 00000005 51                              push ecx
-    29 00000006 66B80500                        mov ax, 0x0005
-    30 0000000A 58                              pop eax
-    31                                          
-    32                                      
-    33                                          ; exit(0)
-    34 0000000B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
-    35 0000000D FF15[00000000]                  call    [exit]       ; call exit to terminate the program
+version https://git-lfs.github.com/spec/v1
+oid sha256:51c96c78dba9b163c36dec6bc071f59313f06b4c695a0d7bda5c5395e2a4260e
+size 2776

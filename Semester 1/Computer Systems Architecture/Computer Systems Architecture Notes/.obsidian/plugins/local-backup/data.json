@@ -1,26 +1,3 @@
-{
-  "versionValue": "0.1.8",
-  "startupBackupStatus": false,
-  "lifecycleValue": "3",
-  "backupsPerDayValue": "3",
-  "maxRetriesValue": "1",
-  "retryIntervalValue": "100",
-  "winSavePathValue": "D:\\BBU-Computer-Science\\Semester 1\\Computer Systems Architecture",
-  "unixSavePathValue": "D:\\BBU-Computer-Science\\Semester 1\\Computer Systems Architecture",
-  "fileNameFormatValue": "Computer Systems Architecture Notes-Backup-%Y_%m_%d-%H_%M_%S",
-  "intervalBackupStatus": false,
-  "backupFrequencyValue": "10",
-  "callingArchiverStatus": false,
-  "archiverTypeValue": "sevenZip",
-  "archiveFileTypeValue": "zip",
-  "archiverWinPathValue": "",
-  "archiverUnixPathValue": "",
-  "showRibbonIcon": true,
-  "showConsoleLog": false,
-  "showNotifications": true,
-  "oneWayBackupStatus": false,
-  "oneWayWinSavePathValue": "",
-  "oneWayUnixSavePathValue": "",
-  "oneWayLifecycleValue": "3",
-  "oneWayBackupsPerDayValue": "3"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:babe163c9e9847050a4caff4af4767b7b1dfb6d41a7b95d386527829ce88b9dc
+size 920

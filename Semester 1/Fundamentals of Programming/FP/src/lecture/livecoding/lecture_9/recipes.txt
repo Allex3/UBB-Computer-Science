@@ -1,2 +1,3 @@
-500,Basic Homemade Bread,101,20,102,30,103,5,104,10,100,1000
-501,Tasty Cookies,105,175,102,175,106,3,107,175,108,5,109,5,103,2
+version https://git-lfs.github.com/spec/v1
+oid sha256:22e578aa5754aa43468cfaae6b1829226c15b26b4290251f9cd130914b37aa4a
+size 127

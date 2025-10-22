@@ -1,22 +1,3 @@
-bits 32 ; assembling for the 32 bits architecture
-
-; declare the EntryPoint (a label defining the very first instruction of the program)
-global start        
-
-; declare external functions needed by our program
-extern exit               ; tell nasm that exit exists even if we won't be defining it
-import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
-                          ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
-
-; our data is declared here (the variables needed by our program)
-segment data use32 class=data
-    v dd 61531531
-
-; our code starts here
-segment code use32 class=code
-    start:
-        mul 5145135
-   
-        ; exit(0)
-        push    dword 0      ; push the parameter for exit onto the stack
-        call    [exit]       ; call exit to terminate the program
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4908152c95a46fef77bfcffdac5f56bed72833957b985f15c9b6f2bef910c46
+size 883

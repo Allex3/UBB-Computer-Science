@@ -1,14 +1,3 @@
-from seminar.group914.seminar_7.board import create_board, is_won_board, is_full_board, move_board, get_symbol_board
-
-
-# import seminar.group914.seminar_7.board
-
-def test_board():
-    b = create_board()
-
-    assert is_won_board(b) is False
-    assert is_full_board(b) is False
-
-    move_board(b, 'X', 1, 1)
-    assert get_symbol_board(b, 1, 1) == 'X'
-    # TODO write more tests
+version https://git-lfs.github.com/spec/v1
+oid sha256:c231b67f79d4c8eb21d3215d6a14c26000e7c9488ef4ba9d133980a77686cc24
+size 379

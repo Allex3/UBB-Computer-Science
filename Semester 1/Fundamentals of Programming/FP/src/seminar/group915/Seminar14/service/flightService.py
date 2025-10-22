@@ -1,16 +1,3 @@
-from Seminar915.Seminar14.domain.flight import Flight
-from Seminar915.Seminar14.domain.validator import FlightValidator
-from Seminar915.Seminar14.repository.textRepository import FlightRepository
-
-
-class FlightService:
-    def __init__(self, flightRepository: FlightRepository, validator: FlightValidator):
-        self.__repository = flightRepository
-        self.__validator = validator
-
-    def add(self, flight: Flight):
-        self.__validator.validate(flight)
-        self.__repository.add(flight)
-
-    def getAll(self):
-        return self.__repository.getAll()
+version https://git-lfs.github.com/spec/v1
+oid sha256:6e028e5dbe44a98c2049aaae088a61facde20dbe80e2deb6d2552eed6fb7e9b0
+size 569

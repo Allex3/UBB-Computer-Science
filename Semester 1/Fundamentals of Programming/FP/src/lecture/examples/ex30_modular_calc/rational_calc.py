@@ -1,10 +1,3 @@
-"""
- Start the calculator application
-"""
-
-from lecture.examples.ex30_modular_calc.ui.console import run
-
-# invoke the run method from the module ui.console
-
-
-run()
+version https://git-lfs.github.com/spec/v1
+oid sha256:01ffd472505b411e238d87da80cf42d3cbf04a6d999e4e052e4393e00f998323
+size 165

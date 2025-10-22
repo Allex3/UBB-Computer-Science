@@ -1,16 +1,3 @@
-anna has apples
-
-patricia has pears
-
-cars are fast
-
-planes are quick
-
-the quick brown fox jumps over the lazy dog
-
-anna has
-
-anna doesn't have apples
-
-marla has pears
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b85d3361c5e0fbea4a05a0252e4eedef98f8da13a2af555f8b7ec2549e29933
+size 168

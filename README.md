@@ -1,2 +1,3 @@
-# BBU-Computer-Science
-All the courses, seminars, laboratories, exercises, lectures, and exams from my bachelor's in computer science at BBU University in Cluj-Napoca
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b0507d5120e6a33da804e6c036f64ad8e6db58152167a68688caa0f96b4dfea
+size 167

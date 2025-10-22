@@ -1,31 +1,3 @@
-Expense of type a is due on day 20 for 244
-Expense of type b is due on day 28 for 397
-Expense of type c is due on day 15 for 748
-Expense of type d is due on day 23 for 194
-Expense of type e is due on day 1 for 68
-Expense of type f is due on day 6 for 597
-Expense of type g is due on day 5 for 47
-Expense of type h is due on day 12 for 914
-Expense of type i is due on day 11 for 747
-Expense of type j is due on day 18 for 311
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
-Expense of type l is due on day 1 for 100
+version https://git-lfs.github.com/spec/v1
+oid sha256:628d164f381e060769c2be2b1f7cd647367344677be08d6694d892004edfb559
+size 1307

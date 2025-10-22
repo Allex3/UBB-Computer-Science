@@ -1,1 +1,3 @@
-The maximum from the list is: 20
+version https://git-lfs.github.com/spec/v1
+oid sha256:ddf4f176878f71a06dc7b9f4af411567bc286cb5d929a64e636b3e9c1b042b80
+size 32

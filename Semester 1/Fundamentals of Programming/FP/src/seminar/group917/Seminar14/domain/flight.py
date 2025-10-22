@@ -1,32 +1,3 @@
-from datetime import time
-
-class Flight:
-    def __init__(self, identifier: str, departureCity: str, departureTime: time, arrivalCity: str, arrivalTime: time):
-        self.__identifier = identifier
-        self.__departureCity = departureCity
-        self.__departureTime = departureTime
-        self.__arrivalCity = arrivalCity
-        self.__arrivalTime = arrivalTime
-
-    @property
-    def identifier(self):
-        return self.__identifier
-
-    @property
-    def departureCity(self):
-        return self.__departureCity
-
-    @property
-    def departureTime(self):
-        return self.__departureTime
-
-    @property
-    def arrivalCity(self):
-        return self.__arrivalCity
-
-    @property
-    def arrivalTime(self):
-        return self.__arrivalTime
-
-    def __str__(self):
-        return "Flight number " + self.identifier + " departs from " + self.departureCity + " at " + str(self.departureTime) + ", arrives at " + self.arrivalCity + " at " + str(self.arrivalTime)
+version https://git-lfs.github.com/spec/v1
+oid sha256:d74ee7448478f2bd31abfa9d93f1e1cd84ec35fb9b0222a9fe1d7cbe43dd6710
+size 976

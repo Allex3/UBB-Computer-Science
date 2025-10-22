@@ -1,5 +1,3 @@
-[run]
-    source = .
-    omit = ./src/tests.py, ./src/repository/binary_repo.py, ./src/repository/text_repo.py
-[report]
- omit = ./src/tests.py, ./src/repository/binary_repo.py, ./src/repository/text_repo.py
+version https://git-lfs.github.com/spec/v1
+oid sha256:765d02975e9a3f4ab82ee4d5e25361e8aa1b6ef3cb0859a008662289fcb309e6
+size 206

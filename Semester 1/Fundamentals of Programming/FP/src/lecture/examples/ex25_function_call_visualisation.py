@@ -1,13 +1,3 @@
-"""
-Add the code below to https://pythontutor.com/visualize.html
-Check the evolution of the call stack step by step
-"""
-
-
-def fib(n: int) -> int:
-    if n < 2:
-        return n
-    return fib(n - 2) + fib(n - 1)
-
-
-print(fib(8))
+version https://git-lfs.github.com/spec/v1
+oid sha256:5bcc05ac9b13d96a8403543a274b60b998c84e91c196d3e940a1abec55083f1a
+size 228

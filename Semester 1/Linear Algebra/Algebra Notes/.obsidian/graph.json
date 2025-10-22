@@ -1,22 +1,3 @@
-{
-  "collapse-filter": true,
-  "search": "",
-  "showTags": false,
-  "showAttachments": false,
-  "hideUnresolved": false,
-  "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
-  "collapse-display": true,
-  "showArrow": false,
-  "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1,
-  "lineSizeMultiplier": 1,
-  "collapse-forces": true,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 10,
-  "linkStrength": 1,
-  "linkDistance": 250,
-  "scale": 2.755675960631077,
-  "close": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b82e0e373e61b44258971ae8e3a526ea23c55a676263da5b3e3109fc983ec40d
+size 510

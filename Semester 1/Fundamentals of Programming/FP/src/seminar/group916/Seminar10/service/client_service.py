@@ -1,13 +1,3 @@
-from seminar10.domain.client import Client
-from seminar10.repository.memory_repo import MemoryRepository
-
-
-class ClientService:
-    def __init__(self, repo: MemoryRepository):
-        self._repo = repo
-
-    def get(self, client_id: int) -> Client:
-        return self._repo[client_id]
-
-    def getAll(self):
-        return self._repo
+version https://git-lfs.github.com/spec/v1
+oid sha256:bc00bf5e1bd1f93d5a2469203ae6d01626b7809f8fbcf3ab15e047bb8b506756
+size 333

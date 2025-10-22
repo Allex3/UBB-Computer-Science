@@ -1,12 +1,3 @@
-from repository import FlightsRepo
-
-
-class Services:
-    def __init__(self, repo: FlightsRepo):
-        self.__repo = repo
-
-    def get_flights(self):
-        return self.__repo.get_flights()
-
-    def add_flight(self, flight_id, depart_city, depart_time, arrival_city, arrival_time):
-        self.__repo.add_flight(flight_id, depart_city, depart_time, arrival_city, arrival_time)
+version https://git-lfs.github.com/spec/v1
+oid sha256:236f93f9ab85b02ba471745684d2a2f7291cac82e953bb5065c1e235882a3f90
+size 380

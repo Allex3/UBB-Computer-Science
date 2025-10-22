@@ -1,5 +1,3 @@
-100,CJ 01 YUI,Audi A3
-101,SJ 56 RGV,Toyota Hilux
-102,B 567 QWN,Dacia Jogger
-103,VS 66 PLO,Suzuki Vitara
-104,CT 45 CFT,VW T-Roc
+version https://git-lfs.github.com/spec/v1
+oid sha256:4fca9c27ea7053175a402e64bcd69df07f4d667a26f58da9bd68b87746aba836
+size 127

@@ -1,12 +1,3 @@
-from Seminar916.Seminar14.domain.validator import FlightValidator
-from Seminar916.Seminar14.repository.textRepository import TextRepository
-from Seminar916.Seminar14.service.flightService import FlightService
-from Seminar916.Seminar14.ui.console import UI
-
-if __name__=="__main__":
-    flightRepository = TextRepository()
-    flightValidator = FlightValidator()
-    flightService = FlightService(flightRepository, flightValidator)
-
-    ui = UI(flightService)
-    ui.start()
+version https://git-lfs.github.com/spec/v1
+oid sha256:306bd9be621e599865ce6449bf227e9765b7d62d32eb26b258f5ddcbe86fcbe5
+size 473

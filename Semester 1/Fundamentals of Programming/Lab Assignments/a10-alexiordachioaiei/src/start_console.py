@@ -1,9 +1,3 @@
-from src.UI.ApplicationConsole import Application
-from src.game.game import ConnectFour
-from src.board.grid import DiscsGrid
-
-if __name__ == '__main__':
-    grid = DiscsGrid()
-    game = ConnectFour(grid)
-    UI = Application(game)
-    UI.run()
+version https://git-lfs.github.com/spec/v1
+oid sha256:8b8f47142b87e7a0aa4a1efb11dd6607557edb7031c2ad7b922e30525a50cda2
+size 244

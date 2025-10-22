@@ -1,13 +1,3 @@
-from unittest import TestCase
-
-from lecture.livecoding.lecture_9.domain.ingredient import Ingredient
-from lecture.livecoding.lecture_9.repo.bakery_memory_repo import BakeryObjectMemoryRepo
-
-
-class TestBakeryMemoryRepo(TestCase):
-    def test_repo(self):
-        repo = BakeryObjectMemoryRepo()
-        self.assertEqual(len(repo), 0)
-        repo.add(Ingredient(100, "Sugar", 100))
-        repo.add(Ingredient(101, "Spice", 100))
-        self.assertEqual(len(repo), 2)
+version https://git-lfs.github.com/spec/v1
+oid sha256:873f68acc1d18caa7f325b706b00b6587ab5bba1850a09fd664661cde8faef0a
+size 468

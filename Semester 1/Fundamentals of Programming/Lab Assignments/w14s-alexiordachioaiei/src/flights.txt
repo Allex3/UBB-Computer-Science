@@ -1,12 +1,3 @@
-RO650,Cluj,05:45,Bucuresti,06:40
-0B3302,Cluj,07:15,Bucuresti,08:15
-SLD322,Timisoara,09:05,Cluj,10:00
-RO643,Bucuresti,10:15,Cluj,11:10
-RO734,Timisoara,10:45,Iasi,12:25
-KL2710,Timisoara,14:25,Bucuresti,15:40
-RO745,Cluj,12:50,Iasi,14:05
-RO746,Iasi,14:30,Cluj,15:50
-RO647,Bucuresti,18:05,Cluj,19:00
-KL2706,Bucuresti,18:10,Timisoara,19:05
-RO733,Iasi,08:30,Timisoara,10:20
-rooo,abc,05:10,dce,06:15
+version https://git-lfs.github.com/spec/v1
+oid sha256:03758230d642ababaf7f2bd010bef592bb30467d34b5a6534b7ee7c09ed2b0b7
+size 392

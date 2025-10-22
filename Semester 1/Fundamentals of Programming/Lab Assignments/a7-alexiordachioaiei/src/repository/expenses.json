@@ -1,14 +1,3 @@
-{
-    "expenses": [
-        {
-            "day": 28,
-            "amount": 792,
-            "type": "g"
-        },
-        {
-            "day": 2,
-            "amount": 1000,
-            "type": "bjgdfsj"
-        }
-    ]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:41ba97cc50c608456f437f5068c5a9534825e6ef7422dc10a51c19d9fc48c3fb
+size 222

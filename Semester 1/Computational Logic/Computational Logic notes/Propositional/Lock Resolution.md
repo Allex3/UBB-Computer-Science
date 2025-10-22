@@ -1,9 +1,3 @@
-- **Restriction:** the literals resolved upon must have the lowest indices in their clauses.
-- IF we want **CONSISTENCY** **MUST** combine it with the **Level Saturation Strategy** in order to check all the possible ways of deriving. If $S^k = \emptyset$ (the last level of lock resolvents is empty) then the set $S$ is inconsistent
-- IF want **INCONSISTENCY**, a strategy is not necessary, but can be helpful.
-- **Lock resolution** + **deletion strategy** is NOT complete = even if $S$ is inconsistent, the empty clause **CANNOT** be derived, because there are **TOO MANY RESTRICTIONS**
----
-
-![[Propositional Lock Resolution.png]]
-
-![[Propositional Lock Resolution Example.png]]
+version https://git-lfs.github.com/spec/v1
+oid sha256:991a211ef602af9e6bac90d8087f11974542f735e7ad68292b4c8c05a35d8a84
+size 679

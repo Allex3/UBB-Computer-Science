@@ -1,4 +1,3 @@
-![[Deduction System Predicate.png]]![[Pasted image 20250130154858.png]]
-- **Closed formula** = Has **no** free variables, only bound by a quantifier
- ![[Def of Deduction Predicate.png]]
- ![[Predicate Deduction Rules.png]]
+version https://git-lfs.github.com/spec/v1
+oid sha256:48b1b38b4377cf6d807a6f75a9375d500ca8a73e454afb7d1cb0b6ff7c7dd34f
+size 221

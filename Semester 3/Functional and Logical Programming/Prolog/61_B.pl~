@@ -1,0 +1,97 @@
+% replace each non-prime number in a list of integers
+% with the sum of its own proper divisors
+% until ALL numbers in the list are prime
+
+% we CAN use the list of proper divisors to also find out
+% if a number is prime == if the list of proper divs is empty
+
+% mathematical models:
+% get_proper_divisors_aux(X, N) =
+% { [], if N = X (we finished all the posibilities
+% { N + get_proper_divisors(X, N+1), if X%N = 0
+% { get_proper_divisors(X, N+1), if X % N != 0
+% inefficient, but welp O(X), plus idk how to do integer sqrt to
+% return an integer too.. anyway
+%
+
+% get_proper_divisors(X) = get_proper_divisors_aux(X, 2)
+
+% now we need to apply this to each number and get the sum of this list
+% sum(l1l2...ln) =
+% { l1 + sum(l2...ln), if L is not empty
+% { 0, if L is empty
+
+% is_prime(X) =
+% { true, if get_proper_divisors(X) is empty
+% { false, otherwise
+
+% replace_np(l1l2...ln) =
+% { [], if L is empty
+% { l1 + replace_np(l2...ln)< if l1 is prime
+% { sum(get_proper_divisors(l1) + replace_np(l2....ln) , if l1
+% isNOTprime
+
+% main_pred(L) = replace_np(L), while there is a non-prime number in L
+
+% is_list_prime(l1l2...ln) =
+% { true, if L is empty
+% { is_list_prime(l2...ln), if l1 is prime
+% { false, if l1 is NOT prime
+
+get_proper_divisors_aux(X, X, []):-!. % X = N, finished all divisors
+get_proper_divisors_aux(X, N, [H|T]):-
+    M is X mod N,
+    M == 0, !,
+    N1 is N+1,
+    H is N, % add the divisor
+    get_proper_divisors_aux(X, N1, T). % add the divisor
+get_proper_divisors_aux(X, N ,D):-
+    N1 is N+1,
+    get_proper_divisors_aux(X, N1, D). % ignore it
+
+
+get_proper_divisors(X, D):-
+    get_proper_divisors_aux(X, 2, D).
+
+
+is_prime(X):-
+    get_proper_divisors(X, D),
+    D == [].
+
+
+is_list_prime([]):-!.
+is_list_prime([H|T]):-
+    is_prime(H),
+    is_list_prime(T).
+
+list_sum([], 0).
+list_sum([H|T], S):-
+    list_sum(T, Saux),
+    S is H+Saux.
+
+% replace_np(L: list, R: list)
+% (i, i), (i, o) - deterministic
+replace_np([], []):-!. % L is empty
+replace_np([H|T], [HR|TR]):-
+    is_prime(H), !, % do not check if it's not prime, cut it here, do not check the other clause
+    HR is H,
+    replace_np(T, TR).
+replace_np([H|T], [HR|TR]):-
+    % is NOT prime, we know from the cut
+    get_proper_divisors(H, D),
+    list_sum(D, S), % S is the sum of its divisors, replace with it
+    HR is S,
+    replace_np(T, TR).
+
+% main_pred(L: list, R: list)
+% (i, o), (i, i) - deterministic ???
+
+
+main_pred_b(L, R):- % not prime
+    \+ is_list_prime(L), !,
+    replace_np(L ,Raux),
+    main_pred(Raux, R).
+main_pred_b(L, R):- % THE LIST IS PRIME IF WE GOT HERE
+    R=L.
+
+

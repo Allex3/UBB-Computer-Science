@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="gui.ProgramController"
+          prefHeight="Infinity" prefWidth="Infinity"
+          alignment="CENTER">
+    <VBox minWidth="250" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" spacing="20" alignment="CENTER"
+          GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        <HBox spacing="5" alignment="CENTER">
+            <Label text="Currently running program number"/>
+            <Label fx:id="programNumberLabel"/>
+        </HBox>
+        <TextField fx:id="numberOfProgramStates" alignment="CENTER" editable="false"/>
+    </VBox>
+    <ScrollPane GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                GridPane.valignment="CENTER">
+        <Label fx:id="programLabel" alignment="CENTER"/>
+    </ScrollPane>
+    <VBox GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        <Label text="Program States IDs"/>
+        <ListView fx:id="programStatesList"/>
+    </VBox>
+    <TableView fx:id="symbolTable" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+               GridPane.valignment="CENTER">
+        <columns>
+            <TableColumn fx:id="variableNameColumn" text="Variable Name"/>
+            <TableColumn fx:id="variableValueColumn" text="Variable Value"/>
+        </columns>
+    </TableView>
+    <VBox GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+        <Label text="Execution Stack"/>
+        <ListView fx:id="exeStackList"/>
+    </VBox>
+    <TableView fx:id="heapTable" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+               GridPane.valignment="CENTER">
+        <columns>
+            <TableColumn fx:id="heapAddressColumn" text="Heap Address"/>
+            <TableColumn fx:id="heapValueColumn" text="Heap Value"/>
+        </columns>
+    </TableView>
+    <VBox GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.halignment="CENTER"
+          GridPane.valignment="CENTER">
+        <Label text="Output"/>
+        <ListView fx:id="outputList"/>
+    </VBox>
+
+    <TableView fx:id="fileTable" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+               GridPane.valignment="CENTER">
+        <columns>
+            <TableColumn fx:id="fileName" text="File Name"/>
+        </columns>
+
+    </TableView>
+    <Button fx:id="oneStepButton" onAction="#onOneStepButton" GridPane.valignment="CENTER" alignment="CENTER"
+            GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.columnIndex="1"
+            text="Execute One Step"
+    />
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+
+</GridPane>
